@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assignment 6</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#btnRight").click(function (e) {
+          var selectedOpts = $("#lstBox1 option:selected");
+          if (selectedOpts.length == 0) {
+            alert("Nothing to move.");
+            e.preventDefault();
+          }
+
+          $("#lstBox2").append($(selectedOpts).clone());
+          $(selectedOpts).remove();
+          e.preventDefault();
+        });
+
+        $("#btnLeft").click(function (e) {
+          var selectedOpts = $("#lstBox2 option:selected");
+          if (selectedOpts.length == 0) {
+            alert("Nothing to move.");
+            e.preventDefault();
+          }
+
+          $("#lstBox1").append($(selectedOpts).clone());
+          $(selectedOpts).remove();
+          e.preventDefault();
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <!-- <table style="width: 500px"> -->
+    <table>
+      <tr>
+        <!-- <td style="width: 200px"> -->
+        <td>
+          <b>Group 1:</b><br />
+          <select multiple="multiple" id="lstBox1">
+            <option value="ajax">Ajax</option>
+            <option value="jquery">jQuery</option>
+            <option value="javascript">JavaScript</option>
+            <option value="mootool">MooTools</option>
+            <option value="prototype">Prototype</option>
+            <option value="dojo">Dojo</option>
+          </select>
+        </td>
+        <td style="width: 0px; text-align: center; vertical-align: middle">
+          <input type="button" id="btnRight" value="  >  " />
+          <input type="button" id="btnLeft" value="  <  " />
+        </td>
+        <td style="width: 20px">
+          <b>Group 2: </b><br />
+          <select multiple="multiple" id="lstBox2">
+            <option value="asp">ASP.NET</option>
+            <option value="c#">C#</option>
+            <option value="vb">VB.NET</option>
+            <option value="java">Java</option>
+            <option value="php">PHP</option>
+            <option value="python">Python</option>
+          </select>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
